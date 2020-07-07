@@ -16,7 +16,7 @@ class HomePage extends StatefulWidget{
 
 class HomePageState extends State<HomePage>{
 
-  final String url = "http://www.eatfresh.cc/arch_daily/api/listOfEvent";
+  final String url = "http://www.eatfresh.cc/arch_daily/api/eventDetail?res_code=1";
   List data;
   var  newdata;
 
@@ -39,7 +39,7 @@ class HomePageState extends State<HomePage>{
      var convertDataToJson = json.decode(response.body);
 //     data = convertDataToJson['res_data'];
 
-     data = convertDataToJson["res_data"]["list_event"];
+     data = convertDataToJson["res_data"]["user_list"];
 
    });
 
@@ -61,7 +61,7 @@ class HomePageState extends State<HomePage>{
                   children: <Widget>[
                     new Card(
                       child: new Container(
-                        child: new Text(data[index]['event_name']),
+                        child: new Text(data[index]['name']),
                         padding: const EdgeInsets.all(20.0),
                       ),
                     )
